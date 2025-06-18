@@ -1,0 +1,9 @@
+.recent-container::-webkit-scrollbar{
+    width: 3px;
+}
+.recent-container::-webkit-scrollbar-track{
+    background: none;
+}
+.recent-container::-webkit-scrollbar-thumb{
+    background: grey;
+}
