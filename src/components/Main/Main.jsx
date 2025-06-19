@@ -1,8 +1,30 @@
+import { useContext } from "react"
+import { Context } from "../../context/context"
+
+
 function Main() {
+
+    const { onSent,
+        input,
+        setInput,
+        recentprompt,
+        setRecentPrompt,
+        prevPrompts,
+        setPrevPrompts,
+        setResultData,
+        resultData,
+        showResult,
+        setShowResult,
+        loading,
+        setLoading,
+        allInput,
+        setAllInput,
+        allOutput,
+        setAllOutput } = useContext(Context)
 
     return (
         <>
-            <div className="main min-h-[100vh] text-[#989fa5] w-full flex flex-col justify-between">
+            <div className="main min-h-[100vh] text-[#989fa5] font-[600] w-full flex flex-col justify-between">
                 <div className="nav text-[14px] flex justify-between w-full p-5  ">
                     <div className="left flex flex-col gap-1">
                         <p className="text-white text-[20px] ">Gemini</p>
@@ -25,13 +47,26 @@ function Main() {
                     </div>
                 </div>
                 <div className="chatbox  h-full w-full my-[10px] flex items-center justify-center">
-                    <p className="pb-[50px] text-3xl font-medium">
-                        <span className="bg-gradient-to-r from-[#4b90ff] to-[#ff5546] bg-clip-text text-transparent">Hello, Anubrata</span>
-                    </p>
+
+                    {/* Chatbox */}
+
+                    {showResult ? 
+                    <div className="chat border w-[50%] h-full flex flex-col gap-8">
+                        <div className="input w-full flex justify-end"><p className="p-4 rounded-l-full rounded-br-full bg-[#333537] text-white">input</p></div>
+                        <div className="output w-full justify-start flex"><p className="text-white">I'm ready for your input! What would you like to talk about or what information are you looking for? Feel free to type anything you have in mind.</p></div>
+                    </div>
+                    :null}
+
+                    {showResult? null:
+                        <p className="pb-[50px] text-3xl font-medium">
+                            <span className="bg-gradient-to-r from-[#4b90ff] to-[#ff5546] bg-clip-text text-transparent">Hello, Anubrata</span>
+                        </p>
+                    }
                 </div>
                 <div className="input-area w-full flex justify-center h-[250px] text-[14px]">
+
                     <div className="user-input w-[50%] min-w-[550px] border border-[#4a5050] rounded-[22px] flex flex-col gap-5 h-fit px-4 py-4">
-                        <input className="blinking-placeholder px-4 w-full h-[30px] bg-[#1b1c1d] text-[16px]" type="text" placeholder="Ask Gemini" />
+                        <input className="blinking-placeholder focus:outline-none px-4 w-full h-[30px] bg-[#1b1c1d] text-[16px]" type="text" placeholder="Ask Gemini . . . ." onChange={(e) => setInput(e.target.value)} value={input} />
                         <div className="flex justify-between">
                             <div className="w-full flex gap-2">
                                 <div className="plus-svg w-10 h-10 p-2 rounded-full hover:bg-[#323537]">
@@ -53,7 +88,7 @@ function Main() {
                                     <p>Canvas</p>
                                 </div>
                             </div>
-                            <div className="submit p-2 hover:bg-[#323537] rounded-full">
+                            <div className="submit p-2 hover:bg-[#323537] rounded-full" onClick={() => { onSent(input); setInput("") }}>
                                 <svg className="w-[25px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >
                                     <path d="M3.478 2.404a.75.75 0 0 0-.926.941l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.517 60.517 0 0 0 3.478 2.404Z" />
                                 </svg>

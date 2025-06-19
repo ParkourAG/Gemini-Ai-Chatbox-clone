@@ -1,64 +1,83 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import "./Sidebar.css"
+import { Context } from '../../context/context';
 
 const Sidebar = () => {
 
-  const [reveal, SetReveal]= useState(true);
+  const { onSent,
+    input,
+    setInput,
+    recentprompt,
+    setRecentPrompt,
+    prevPrompts,
+    setPrevPrompts,
+    setResultData,
+    resultData,
+    showResult,
+    setShowResult,
+    loading,
+    setLoading,
+    allInput,
+    setAllInput,
+    allOutput,
+    setAllOutput } = useContext(Context)
 
-  function handleReveal(){
-    SetReveal(r=> !r)
+  const [reveal, SetReveal] = useState(true);
+
+  function handleReveal() {
+    SetReveal(r => !r)
   }
 
   return (
     <>
-      <div className={`sidebar text-[14px] bg-[#282a2c] min-h-[100vh] text-[#989fa5] flex flex-col justify-between transition-all duration-200 ${reveal? "min-w-[275px]" : "w-[70px]"}`}>
+      <div className={`sidebar text-[14px] font-[600] bg-[#282a2c] min-h-[100vh] text-[#989fa5] flex flex-col justify-between transition-all duration-200 ${reveal ? "min-w-[275px]" : "w-[70px]"}`}>
         <div className='sidebar-head'>
           <div className="top">
             <div className='top-icons w-full flex justify-between p-6'>
               <div className="bar-icon">
-                <svg onClick={()=> handleReveal()} className="w-[20px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor">
+                <svg onClick={() => handleReveal()} className="w-[20px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
               </div>
 
-              {reveal?
-              <div className="search-icon">
-                <svg className="w-[20px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                </svg>
-              </div>: null}
+              {reveal ?
+                <div className="search-icon">
+                  <svg className="w-[20px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                  </svg>
+                </div> : null}
 
             </div>
             <div className='mid-icons flex gap-4 flex-col w-full p-6'>
-              <div className='new-chat flex gap-5 cursor-pointer'>
+              <div className='new-chat flex gap-5 cursor-pointer' onClick={() => setShowResult(false)}>
                 <div className='new-chat-icon'>
                   <svg className="w-[20px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" >
                     <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 9.75a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
                   </svg>
                 </div>
 
-                {reveal? <p>New chat</p> :null}
+                {reveal ? <p>New chat</p> : null}
               </div>
 
-              {reveal? <div className='explore-gems flex gap-5 cursor-pointer'>
+              {reveal ? <div className='explore-gems flex gap-5 cursor-pointer'>
                 <div className='explore-gems-icon'>
                   <svg className="w-[20px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" >
                     <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
                   </svg>
                 </div>
                 <p>Explore Gems</p>
-              </div> :null}
+              </div> : null}
 
             </div>
-            {reveal? <div className='recent mt-4 ml-[-2px] mx-1 w-full'>
+            {reveal ? <div className='recent mt-4 ml-[-2px] mx-1 w-full'>
               <p className='pr-[12px] pl-[20px] font-[500]'>Recent</p>
               <div className='recent-container h-[520px] mt-1 pr-[12px] pl-[20px] flex flex-col overflow-y-auto overflow-x-hidden '>
                 <p className='py-2 px-3 hover:bg-[#323537] rounded-full cursor-pointer'>Lorem ipsum dolor sit </p>
                 <p className='py-2 px-3 hover:bg-[#323537] rounded-full cursor-pointer'>Lorem ipsum dolor sit </p>
                 <p className='py-2 px-3 hover:bg-[#323537] rounded-full cursor-pointer'>Lorem ipsum dolor sit </p>
-                
+
               </div>
-            </div> :null}
+            </div> : null}
 
           </div>
         </div>
@@ -71,7 +90,7 @@ const Sidebar = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
               </svg>
 
-              {reveal? <p>Settings & help</p> :null}
+              {reveal ? <p>Settings & help</p> : null}
             </div>
           </div>
         </div>
