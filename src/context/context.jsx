@@ -1,4 +1,4 @@
-import { createContext, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 import main from "../config/gemini";
 
 export const Context= createContext();
@@ -13,12 +13,23 @@ const ContextProvider= (props)=>{
     const [resultData, setResultData]= useState("");
     const [allInput, setAllInput]= useState([]);
     const [allOutput, setAllOutput]= useState([]);
+    const [data,setData]= useState([]);
 
     const onSent= async (prompt)=>{
         setShowResult(true);
-        console.log("onset activated")
-        await main(input);
+        let newInput= input;
+        setInput("")
+        let newOutput= await main(input);
+        setAllInput(i=> [...i, newInput]);
+        setAllOutput(o=> [...o, newOutput]);
+        
     }
+    useEffect(() => {
+        console.log(allInput);
+    }, [allInput])
+    useEffect(() => {
+        console.log(allOutput);
+    }, [allOutput])
 
     
 
@@ -39,7 +50,9 @@ const ContextProvider= (props)=>{
         allInput,
         setAllInput,
         allOutput, 
-        setAllOutput
+        setAllOutput,
+        data,
+        setData,
     }
 
     return(

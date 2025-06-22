@@ -20,7 +20,9 @@ const Sidebar = () => {
     allInput,
     setAllInput,
     allOutput,
-    setAllOutput } = useContext(Context)
+    setAllOutput,
+    data,
+    setData } = useContext(Context)
 
   const [reveal, SetReveal] = useState(true);
 
