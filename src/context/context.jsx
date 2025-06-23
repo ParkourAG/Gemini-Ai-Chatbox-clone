@@ -8,7 +8,7 @@ const ContextProvider = (props) => {
     const [input, setInput] = useState("");
     const [recentprompt, setRecentPrompt] = useState("");
     const [prevPrompts, setPrevPrompts] = useState([]);
-    const [showResult, setShowResult] = useState(true);
+    const [showResult, setShowResult] = useState(false);
     const [loading, setLoading] = useState(false);
     const [resultData, setResultData] = useState("");
     const [allInput, setAllInput] = useState([]);
@@ -28,18 +28,18 @@ const ContextProvider = (props) => {
             answer: newOutput
         }
         setLoading(false);
-        setData(d => [...d, newData])
+        // setData(d => [...d, newData])
     }
 
-    useEffect(() => {
-        console.log(allInput);
-    }, [allInput])
-    useEffect(() => {
-        console.log(allOutput);
-    }, [allOutput])
-    useEffect(() => {
-        console.log(data)
-    }, [data])
+    // useEffect(() => {
+    //     console.log(allInput);
+    // }, [allInput])
+    // useEffect(() => {
+    //     console.log(allOutput);
+    // }, [allOutput])
+    // useEffect(() => {
+    //     console.log(data)
+    // }, [data])
 
 
     const contextValue = {
