@@ -29,6 +29,10 @@ const Sidebar = () => {
   function handleReveal() {
     SetReveal(r => !r)
   }
+  function getLogs(string){
+        const result= string.slice(0,27) + "...."
+        return result;
+    }
 
   function handleClickNewchat(){
     setShowResult(false);
@@ -49,7 +53,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className={`sidebar text-[14px] font-[600] bg-[#282a2c] h-[100vh] text-[#989fa5] flex flex-col justify-between transition-all duration-200 ${reveal ? "min-w-[275px]" : "w-[70px]"}`}>
+      <div className={`sidebar text-[14px] font-[600] bg-[#282a2c] h-[100vh] text-[#989fa5] flex flex-col justify-between transition-all duration-200 ${reveal ? "w-[330px]" : "w-[70px]"}`}>
         <div className='sidebar-head'>
           <div className="top">
             <div className='top-icons w-full flex justify-between p-6'>
@@ -92,7 +96,7 @@ const Sidebar = () => {
               <p className='pr-[12px] pl-[20px] font-[500]'>Recent</p>
               <div className='recent-container h-[520px] mt-1 pr-[12px] pl-[20px] flex flex-col overflow-y-auto overflow-x-hidden '>
                 {data.map((d, index)=>
-                  <p className='py-2 px-3 hover:bg-[#323537] rounded-full cursor-pointer'>{d.answers[0]}</p>
+                  <p className='py-3 px-3 hover:bg-[#323537] rounded-full cursor-pointer'>{getLogs(d.answers[0])}</p>
                 )}
                 {/* <p className='py-2 px-3 hover:bg-[#323537] rounded-full cursor-pointer'>Lorem ipsum dolor sit amet,</p> */}
               </div>

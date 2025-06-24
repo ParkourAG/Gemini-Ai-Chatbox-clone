@@ -26,6 +26,7 @@ function Main() {
     async function handleSent() {
         onSent(input);
     }
+
     return (
         <>
             <div className="main h-[100vh] text-[#989fa5] font-[600] w-full flex flex-col justify-between">
@@ -80,7 +81,7 @@ function Main() {
                         <input className="blinking-placeholder focus:outline-none px-4 w-full h-[30px] bg-[#1b1c1d] text-[16px]" type="text" placeholder="Ask Gemini . . . ." onChange={(e) => setInput(e.target.value)} value={input} />
                         <div className="flex justify-between">
                             <div className="w-full flex gap-2">
-                                <div className="plus-svg w-10 h-10 p-2 rounded-full hover:bg-[#323537]  flex items-center justify-center">
+                                <div className="plus-svg w-10 h-10 p-2 rounded-full hover:bg-[#323537]  flex items-center justify-center cursor-pointer">
                                     <svg className="w-[20px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >
                                         <path fillRule="evenodd" d="M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z" clipRule="evenodd" />
                                     </svg>
@@ -99,7 +100,7 @@ function Main() {
                                     <p>Canvas</p>
                                 </div>
                             </div>
-                            <div className="submit p-2 hover:bg-[#323537] rounded-full" onClick={() => handleSent()}>
+                            <div className="submit p-2 hover:bg-[#323537] rounded-full" onClick={() => input.length && handleSent()}>
                                 <svg className="w-[25px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >
                                     <path d="M3.478 2.404a.75.75 0 0 0-.926.941l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.517 60.517 0 0 0 3.478 2.404Z" />
                                 </svg>
