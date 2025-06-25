@@ -59,7 +59,7 @@ function Main() {
                     <div className="chat w-[60%] h-[500px] border flex flex-col gap-8 overflow-y-auto overflow-x-hidden">
                         {allInput.map((i, index) =>
                         (<>
-                            <div className="input w-full flex justify-end"><p className="p-4 rounded-l-full rounded-br-full font-[400] bg-[#333537] text-white">{i}</p></div>
+                            <div key={index} className="input w-full flex justify-end"><p className="p-4 rounded-l-full rounded-br-full font-[400] bg-[#333537] text-white">{i}</p></div>
                             <div className="output justify-start flex w-[95%]">
                                 <img className="h-[35px]" src="src/assets/google-gemini-logo-removebg-preview.png" alt="" />
                                 <p className="text-white font-[400] pl-3">{allOutput[index]}</p></div>

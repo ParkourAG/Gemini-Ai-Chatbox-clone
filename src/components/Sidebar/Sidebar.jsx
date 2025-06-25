@@ -24,7 +24,9 @@ const Sidebar = () => {
     data,
     setData } = useContext(Context)
 
-  const [reveal, SetReveal] = useState(true);
+  const [reveal, SetReveal] = useState(true); 
+  const[dataId, setDataId]= useState(0);
+  const reverseData= data.sort((a,b)=> b.id-a.id);
 
   function handleReveal() {
     SetReveal(r => !r)
@@ -38,7 +40,9 @@ const Sidebar = () => {
     setShowResult(false);
     const newAllInput= allInput;
     const newAllOutput= allOutput;
+    setDataId(d=> d+1)
     const newData= {
+      id: dataId,
       questions: newAllInput,
       answers: newAllOutput
     }
@@ -46,10 +50,6 @@ const Sidebar = () => {
     setAllInput([]);
     setAllOutput([]);
   }
-
-  useEffect(() => {
-    console.log(data)
-  }, [data])
 
   return (
     <>
@@ -72,7 +72,7 @@ const Sidebar = () => {
 
             </div>
             <div className='mid-icons flex gap-4 flex-col w-full p-6'>
-              <div className='new-chat flex gap-5 cursor-pointer' onClick={() => handleClickNewchat()}>
+              <div className='new-chat flex gap-5 cursor-pointer' onClick={() => allInput.length && handleClickNewchat()}>
                 <div className='new-chat-icon'>
                   <svg className="w-[20px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" >
                     <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 9.75a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
@@ -95,8 +95,8 @@ const Sidebar = () => {
             {reveal ? <div className='recent mt-4 ml-[-2px] mx-1 w-full'>
               <p className='pr-[12px] pl-[20px] font-[500]'>Recent</p>
               <div className='recent-container h-[520px] mt-1 pr-[12px] pl-[20px] flex flex-col overflow-y-auto overflow-x-hidden '>
-                {data.map((d, index)=>
-                  <p className='py-3 px-3 hover:bg-[#323537] rounded-full cursor-pointer'>{getLogs(d.answers[0])}</p>
+                {reverseData.map((d, index)=>
+                  <p key={index} className='py-3 px-3 hover:bg-[#323537] rounded-full cursor-pointer'>{getLogs(d.answers[0])}</p>
                 )}
                 {/* <p className='py-2 px-3 hover:bg-[#323537] rounded-full cursor-pointer'>Lorem ipsum dolor sit amet,</p> */}
               </div>

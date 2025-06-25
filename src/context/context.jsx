@@ -31,12 +31,12 @@ const ContextProvider = (props) => {
         // setData(d => [...d, newData])
     }
 
-    // useEffect(() => {
-    //     console.log(allInput);
-    // }, [allInput])
-    // useEffect(() => {
-    //     console.log(allOutput);
-    // }, [allOutput])
+    useEffect(() => {
+        console.log(allInput);
+    }, [allInput])
+    useEffect(() => {
+        console.log(allOutput);
+    }, [allOutput])
     // useEffect(() => {
     //     console.log(data)
     // }, [data])
