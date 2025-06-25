@@ -24,8 +24,8 @@ const ContextProvider = (props) => {
         let newOutput = await main(input);
         setAllOutput(o => [...o, newOutput]);
         let newData = {
-            question: newInput,
-            answer: newOutput
+            questions: newInput,
+            answers: newOutput
         }
         setLoading(false);
         // setData(d => [...d, newData])
