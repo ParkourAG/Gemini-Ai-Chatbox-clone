@@ -8,6 +8,11 @@
 body{
     background-color: #1b1c1d;
 }
+html{
+    max-height: 100vh;
+    overflow-y: hidden;
+    overflow-x: hidden
+}
 
 @tailwind base;
 @tailwind components;
