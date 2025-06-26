@@ -51,18 +51,19 @@ function Main() {
 
                     </div>
                 </div>
-                <div className="chatbox  h-fit w-full my-[10px] flex justify-center">
+                <div className="chatbox  h-full w-full  my-[10px] flex justify-center overflow-y-auto overflow-x-hidden">
 
                     {/* Chatbox */}
 
                     {showResult ?
-                    <div className="chat w-full lg:w-[900px] h-[30vh] border flex flex-col gap-8 overflow-y-auto overflow-x-hidden">
+                    <div className="chat w-[95%] lg:w-[700px] h-full flex flex-col gap-8 ">
                         {allInput.map((i, index) =>
                         (<>
                             <div key={index} className="input w-full flex justify-end"><p className="p-4 rounded-l-full rounded-br-full font-[400] bg-[#333537] text-white">{i}</p></div>
                             <div className="output justify-start flex w-[95%]">
                                 <img className="h-[35px]" src="src/assets/google-gemini-logo-removebg-preview.png" alt="" />
-                                <p className="text-white font-[400] pl-3">{allOutput[index]}</p></div>
+                                <p className="text-white font-[400] pl-3">{allOutput[index]}</p>
+                            </div>
                             </>
                         
                         ))}
@@ -70,14 +71,14 @@ function Main() {
                         : null}
 
                     {showResult ? null :
-                        <p className="pb-[50px] text-3xl font-medium">
+                        <p className="pb-[50px] text-3xl font-medium flex items-center justify-center">
                             <span className="bg-gradient-to-r from-[#4b90ff] to-[#ff5546] bg-clip-text text-transparent">Hello, Anubrata</span>
                         </p>
                     }
                 </div>
-                <div className="input-area w-full flex justify-center h-[155px] text-[14px]">
+                <div className="input-area w-full flex justify-center h-[230px] text-[14px]">
 
-                    <div className="user-input w-[50%] min-w-[550px] border border-[#4a5050] rounded-[22px] flex flex-col gap-3 h-fit px-2 pb-2 pt-3">
+                    <div className="user-input w-[50%] min-w-[550px] border border-[#4a5050] rounded-[22px] flex flex-col gap-1.5 h-fit px-2 pb-2 pt-3">
                         <input className="blinking-placeholder focus:outline-none px-4 w-full h-[30px] bg-[#1b1c1d] text-[16px]" type="text" placeholder="Ask Gemini . . . ." onChange={(e) => setInput(e.target.value)} value={input} />
                         <div className="flex justify-between">
                             <div className="w-full flex gap-2">

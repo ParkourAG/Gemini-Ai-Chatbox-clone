@@ -69,7 +69,7 @@ const Sidebar = () => {
   return (
     <>
       <div className={`sidebar text-[14px] font-[600] bg-[#282a2c] max-h-[100vh] text-[#989fa5] flex flex-col justify-between transition-all duration-200 ${reveal ? "w-[330px]" : "w-[70px]"}`}>
-        <div className='sidebar-head h-[93vh]'>
+        <div className='sidebar-head h-[91vh]'>
           <div className="top">
             <div className='top-icons w-full flex justify-between p-6'>
               <div className="bar-icon">
@@ -120,7 +120,7 @@ const Sidebar = () => {
           </div>
         </div>
 
-        <div className='sidebar-foot w-full bg-[#282a2c] h-[7vh]'>
+        <div className='sidebar-foot w-full bg-[#282a2c] h-[9vh]'>
           <div className="bottom flex w-full">
             <div className='settings-icon flex hover:bg-[#323537] gap-5 mb-7 ml-4 mx-1 rounded-full px-3 py-2 cursor-pointer w-full'>
               <svg className="w-[20px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" >
