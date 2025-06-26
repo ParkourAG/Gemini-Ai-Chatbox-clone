@@ -50,22 +50,26 @@ const Sidebar = () => {
     setAllInput([]);
     setAllOutput([]);
   }
+  useEffect(()=>
+  console.log(data)
+, [data])
 
   function handleLogsClick(index){
     setAllInput([])
     setAllOutput([])
     let currentData= data[index];
+    const updatedData= data.filter((_, i)=> i !== index) ;
+    setData(updatedData)
     console.log(data[index]);
     setShowResult(true);
     setAllInput(i=> [...i, ...currentData.questions]);
     setAllOutput(o=> [...o, ...currentData.answers]);
-
   }
 
   return (
     <>
       <div className={`sidebar text-[14px] font-[600] bg-[#282a2c] h-[100vh] text-[#989fa5] flex flex-col justify-between transition-all duration-200 ${reveal ? "w-[330px]" : "w-[70px]"}`}>
-        <div className='sidebar-head'>
+        <div className='sidebar-head h-full'>
           <div className="top">
             <div className='top-icons w-full flex justify-between p-6'>
               <div className="bar-icon">
