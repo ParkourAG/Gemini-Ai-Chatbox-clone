@@ -68,7 +68,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className={`sidebar text-[14px] font-[600] bg-[#282a2c] max-h-[100vh] text-[#989fa5] flex flex-col justify-between transition-all duration-200 ${reveal ? "w-[330px]" : "w-[70px]"}`}>
+      <div className={`sidebar fixed md:static text-[14px] font-[600] bg-[#282a2c] max-h-[100vh] text-[#989fa5] flex flex-col justify-between transition-all duration-200 ${reveal ? "w-[330px]" : "w-[70px]"}`}>
         <div className='sidebar-head h-[91vh]'>
           <div className="top">
             <div className='top-icons w-full flex justify-between p-6'>
