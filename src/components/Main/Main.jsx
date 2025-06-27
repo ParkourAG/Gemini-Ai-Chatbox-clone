@@ -31,7 +31,7 @@ function Main() {
         <>
             <div className="main h-[100vh] text-[#989fa5] font-[600] w-full flex flex-col justify-between">
                 <div className="nav text-[14px] flex justify-between w-full p-5  ">
-                    <div className="left flex flex-col gap-1">
+                    <div className="left ml-10 md:ml-1 flex flex-col gap-1">
                         <p className="text-white text-[20px] ">Gemini</p>
                         <div className="gemini-version bg-[#282a2c] hover:bg-[#323537] w-[100px] py-1.5 flex justify-center gap-1 rounded-full cursor-pointer">
                             <p>2.5 Flash</p>
@@ -41,7 +41,7 @@ function Main() {
                         </div>
                     </div>
                     <div className="right flex gap-5">
-                        <div className="upgrade w-[120px] flex justify-center items-center gap-2 h-[38px] bg-[#3d3f42] hover:bg-[#323537] rounded-lg cursor-pointer">
+                        <div className="upgrade w-[120px] hidden md:flex justify-center items-center gap-2 h-[38px] bg-[#3d3f42] hover:bg-[#323537] rounded-lg cursor-pointer">
                             <svg className="w-[18px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >
                                 <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clipRule="evenodd" />
                             </svg>
@@ -76,9 +76,9 @@ function Main() {
                         </p>
                     }
                 </div>
-                <div className="input-area w-full flex justify-center h-[230px] text-[12px] md:text-[14px]">
+                <div className="input-area w-full mb-2 flex justify-center h-[230px] text-[12px] md:text-[14px]">
 
-                    <div className="user-input w-[350px] md:w-[40%] md:min-w-[550px] border border-[#4a5050] rounded-[22px] flex flex-col gap-1.5 h-fit px-2 pb-2 pt-3">
+                    <div className="user-input mx-2 w-[350px] md:w-[40%] md:min-w-[550px] border border-[#4a5050] rounded-[22px] flex flex-col gap-1.5 h-fit px-2 pb-2 pt-3">
                         <input className="blinking-placeholder focus:outline-none px-4 w-full h-[30px] bg-[#1b1c1d] text-[14px] md:text-[16px]" type="text" placeholder="Ask Gemini . . . ." onChange={(e) => setInput(e.target.value)} value={input} />
                         <div className="flex justify-between">
                             <div className="w-full flex gap-2">
