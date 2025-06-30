@@ -76,7 +76,7 @@ function Main() {
                         </p>
                     }
                 </div>
-                <div className="input-area w-full mb-2 flex justify-center h-[230px] text-[12px] md:text-[14px]">
+                <div className="input-area w-full mb-5 flex justify-center h-[230px] text-[12px] md:text-[14px]">
 
                     <div className="user-input mx-2 w-[350px] md:w-[40%] md:min-w-[550px] border border-[#4a5050] rounded-[22px] flex flex-col gap-1.5 h-fit px-2 pb-2 pt-3">
                         <input className="blinking-placeholder focus:outline-none px-4 w-full h-[30px] bg-[#1b1c1d] text-[14px] md:text-[16px]" type="text" placeholder="Ask Gemini . . . ." onChange={(e) => setInput(e.target.value)} value={input} />
