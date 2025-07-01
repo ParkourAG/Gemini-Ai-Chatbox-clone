@@ -1,5 +1,6 @@
 import { useContext, useEffect } from "react"
 import { Context } from "../../context/context"
+import "./Main.css"
 
 
 function Main() {
@@ -51,7 +52,7 @@ function Main() {
 
                     </div>
                 </div>
-                <div className="chatbox  h-full w-full  my-[10px] flex justify-center overflow-y-auto overflow-x-hidden">
+                <div id="chatbox" className="h-full w-full  my-[10px] flex justify-center overflow-y-auto overflow-x-hidden">
 
                     {/* Chatbox */}
 

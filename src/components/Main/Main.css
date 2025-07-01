@@ -1,2 +1,9 @@
-
-
+#chatbox::-webkit-scrollbar{
+    width: 7px;
+}
+#chatbox::-webkit-scrollbar-track{
+    background: none;
+}
+#chatbox::-webkit-scrollbar-thumb{
+    background: grey;
+}
