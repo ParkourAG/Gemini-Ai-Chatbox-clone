@@ -62,7 +62,7 @@ function Main() {
                         (<>
                             <div key={index} className="input w-full flex justify-end"><p className="p-4 rounded-l-full rounded-br-full font-[400] bg-[#333537] text-white">{i}</p></div>
                             <div className="output justify-start flex w-[95%]">
-                                <img className="h-[35px]" src="public\google-gemini-logo-removebg-preview.png" alt="" />
+                                <img className="h-[35px]" src="/google-gemini-logo-removebg-preview.png" alt="" />
                                 <p className="text-white font-[400] pl-3">{allOutput[index]}</p>
                             </div>
                             </>
